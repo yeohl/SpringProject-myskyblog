@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Blog - 게시물 작성</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- 헤더 -->
+<header>
+    <h1>Sky Blog</h1>
+
+
+</header>
+
+
+
+<main>
+    <form id="postForm" class="post-form" action="/updatePost" th:object="${post}" method="post">
+        <input type="hidden" name="id" th:value="*{id}" />
+        <div class="form-group">
+            <label for="title">제목:</label>
+            <input type="text" id="title" name="title" th:value="*{title}" required> <!-- 현재 제목으로 초기화 -->
+        </div>
+        <div class="form-group">
+            <label for="content">내용:</label>
+            <textarea id="content" name="content" rows="10" th:text="*{content}" required></textarea> <!-- 현재 내용으로 초기화 -->
+        </div>
+        <button type="submit" class="edit-button">수정하기</button>
+    </form>
+</main>
+
+
+</body>
+</html>
